@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,33 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    UITabBarController *tabBarController = [[UITabBarController alloc]init];
+    
+    HomeViewController *vc = [[HomeViewController alloc]init];
+    UINavigationController *homeVc = [[UINavigationController alloc]initWithRootViewController:vc];
+    homeVc.view.backgroundColor = [UIColor redColor];
+    homeVc.tabBarItem.title = @"首页";
+    homeVc.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page"];
+    homeVc.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected"];
+    
+    UIViewController *videoVc = [[UIViewController alloc]init];
+    videoVc.view.backgroundColor = [UIColor greenColor];
+    videoVc.tabBarItem.title = @"视频";
+    videoVc.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/video"];
+    videoVc.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/video_selected"];
+    
+    UIViewController *mineVc = [[UIViewController alloc]init];
+    mineVc.view.backgroundColor = [UIColor blueColor];
+    mineVc.tabBarItem.title = @"我的";
+    mineVc.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home"];
+    mineVc.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected"];
+    tabBarController.tabBar.tintColor = [UIColor redColor];
+    [tabBarController setViewControllers:@[homeVc, videoVc, mineVc] animated:YES];
+    
+    
+    self.window.rootViewController = tabBarController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
