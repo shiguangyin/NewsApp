@@ -22,7 +22,6 @@
     
     HomeViewController *vc = [[HomeViewController alloc]init];
     UINavigationController *homeVc = [[UINavigationController alloc]initWithRootViewController:vc];
-    homeVc.view.backgroundColor = [UIColor redColor];
     homeVc.tabBarItem.title = @"首页";
     homeVc.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page"];
     homeVc.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected"];

@@ -8,27 +8,44 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController ()
+@interface HomeViewController () <UITableViewDataSource>
+
+
+@property(strong, nonatomic) UITableView *tableView;
 
 @end
 
 @implementation HomeViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
-    [button setTitle:@"Next" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(nextTaped) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:button];
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
 }
 
-- (void)nextTaped {
-    UIViewController *vc = [[UIViewController alloc]init];
-    vc.view.backgroundColor = [UIColor yellowColor];
-    vc.navigationItem.title = @"detail";
-    
-    [self.navigationController pushViewController:vc animated:YES];
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    }
+    return _tableView;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 40;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"item"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"item"];
+    }
+    NSUInteger index = [indexPath indexAtPosition:indexPath.length - 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"title %lu", index];
+    cell.detailTextLabel.text = @"detail text";
+    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/home.png"];
+    return cell;
 }
 
 
