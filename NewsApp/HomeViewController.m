@@ -8,7 +8,7 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController () <UITableViewDataSource>
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 
 @property(strong, nonatomic) UITableView *tableView;
@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
 }
 
@@ -41,11 +42,20 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"item"];
     }
-    NSUInteger index = [indexPath indexAtPosition:indexPath.length - 1];
-    cell.textLabel.text = [NSString stringWithFormat:@"title %lu", index];
+    cell.textLabel.text = [NSString stringWithFormat:@"title %li", indexPath.row];
     cell.detailTextLabel.text = @"detail text";
     cell.imageView.image = [UIImage imageNamed:@"icon.bundle/home.png"];
     return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"index %li clicked", indexPath.row);
 }
 
 

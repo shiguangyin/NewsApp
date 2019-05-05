@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import "VideoViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,11 +27,8 @@
     homeVc.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page"];
     homeVc.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected"];
     
-    UIViewController *videoVc = [[UIViewController alloc]init];
-    videoVc.view.backgroundColor = [UIColor greenColor];
-    videoVc.tabBarItem.title = @"视频";
-    videoVc.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/video"];
-    videoVc.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/video_selected"];
+    VideoViewController *videoVc = [[VideoViewController alloc]init];
+
     
     UIViewController *mineVc = [[UIViewController alloc]init];
     mineVc.view.backgroundColor = [UIColor blueColor];
