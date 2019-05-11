@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "NewsTableViewCell.h"
 
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -38,13 +39,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"item"];
+    NewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"item"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"item"];
+        cell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"item"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"title %li", indexPath.row];
-    cell.detailTextLabel.text = @"detail text";
-    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/home.png"];
+    [cell bindData];
     return cell;
 }
 

@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2392BB29226C4A0D00296489 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2392BB28226C4A0D00296489 /* HomeViewController.m */; };
 		23E1BFD0226B4EC400EA6DBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E1BFCF226B4EC400EA6DBD /* AppDelegate.m */; };
 		23E1BFD8226B4EC500EA6DBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23E1BFD7226B4EC500EA6DBD /* Assets.xcassets */; };
 		23E1BFDB226B4EC500EA6DBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23E1BFD9226B4EC500EA6DBD /* LaunchScreen.storyboard */; };
 		23E1BFDE226B4EC500EA6DBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E1BFDD226B4EC500EA6DBD /* main.m */; };
 		23E1BFE5226B68D000EA6DBD /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 23E1BFE4226B68D000EA6DBD /* icon.bundle */; };
-		BF8D0AFCF1EA09B98FEDAC6B /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D033376D9417AA5455ADC /* MineViewController.m */; };
-		BF8D0E29212DCB14D2D211A4 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D06F1035CF132944638BE /* VideoViewController.m */; };
+		BF8D04BEC6BCE052E0CB77EB /* UIView+category.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D0753D9B5814853B37DC8 /* UIView+category.m */; };
+		BF8D05C92F421560E3E358C3 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D073790FF0CA18329ED44 /* MineViewController.m */; };
+		BF8D09530195FD941489553A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D04C8ABB5BF476647A4BA /* HomeViewController.m */; };
+		BF8D0A74D290BFE1F6D9B79F /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D0FD92B97BFE5E741DD1A /* NewsTableViewCell.m */; };
+		BF8D0B6855660D1CA271885B /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D03E8B9219D23C086D70E /* VideoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2392BB27226C4A0D00296489 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		2392BB28226C4A0D00296489 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		23E1BFCB226B4EC400EA6DBD /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23E1BFCE226B4EC400EA6DBD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		23E1BFCF226B4EC400EA6DBD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -28,10 +28,16 @@
 		23E1BFDC226B4EC500EA6DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23E1BFDD226B4EC500EA6DBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		23E1BFE4226B68D000EA6DBD /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
-		BF8D033376D9417AA5455ADC /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
-		BF8D06F1035CF132944638BE /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
-		BF8D08623FB66E1730B00ADB /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
-		BF8D0A21EAC90D8EF0E7F361 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		BF8D0026A19D1621C3056B86 /* UIView+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+category.h"; sourceTree = "<group>"; };
+		BF8D029DD11DA1DF9F1FDC45 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		BF8D02F36BA395DA111FB430 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		BF8D032802E9AD22342718DA /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
+		BF8D03E8B9219D23C086D70E /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		BF8D04C8ABB5BF476647A4BA /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		BF8D073790FF0CA18329ED44 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		BF8D0753D9B5814853B37DC8 /* UIView+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+category.m"; sourceTree = "<group>"; };
+		BF8D092C1D4C0420C31AC65C /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		BF8D0FD92B97BFE5E741DD1A /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,14 +77,50 @@
 				23E1BFD9226B4EC500EA6DBD /* LaunchScreen.storyboard */,
 				23E1BFDC226B4EC500EA6DBD /* Info.plist */,
 				23E1BFDD226B4EC500EA6DBD /* main.m */,
-				2392BB27226C4A0D00296489 /* HomeViewController.h */,
-				2392BB28226C4A0D00296489 /* HomeViewController.m */,
-				BF8D06F1035CF132944638BE /* VideoViewController.m */,
-				BF8D0A21EAC90D8EF0E7F361 /* VideoViewController.h */,
-				BF8D033376D9417AA5455ADC /* MineViewController.m */,
-				BF8D08623FB66E1730B00ADB /* MineViewController.h */,
+				BF8D0768FDFB10E707E6DD27 /* Home */,
+				BF8D0B186DA9278AC414B7A3 /* Video */,
+				BF8D015068DFCEC4F9DFBDCF /* Mine */,
+				BF8D018CEB5AA1F0D4A774C2 /* Category */,
 			);
 			path = NewsApp;
+			sourceTree = "<group>";
+		};
+		BF8D015068DFCEC4F9DFBDCF /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D073790FF0CA18329ED44 /* MineViewController.m */,
+				BF8D029DD11DA1DF9F1FDC45 /* MineViewController.h */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		BF8D018CEB5AA1F0D4A774C2 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D0753D9B5814853B37DC8 /* UIView+category.m */,
+				BF8D0026A19D1621C3056B86 /* UIView+category.h */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		BF8D0768FDFB10E707E6DD27 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D04C8ABB5BF476647A4BA /* HomeViewController.m */,
+				BF8D02F36BA395DA111FB430 /* HomeViewController.h */,
+				BF8D0FD92B97BFE5E741DD1A /* NewsTableViewCell.m */,
+				BF8D032802E9AD22342718DA /* NewsTableViewCell.h */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BF8D0B186DA9278AC414B7A3 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D092C1D4C0420C31AC65C /* VideoViewController.h */,
+				BF8D03E8B9219D23C086D70E /* VideoViewController.m */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +195,11 @@
 			files = (
 				23E1BFDE226B4EC500EA6DBD /* main.m in Sources */,
 				23E1BFD0226B4EC400EA6DBD /* AppDelegate.m in Sources */,
-				2392BB29226C4A0D00296489 /* HomeViewController.m in Sources */,
-				BF8D0E29212DCB14D2D211A4 /* VideoViewController.m in Sources */,
-				BF8D0AFCF1EA09B98FEDAC6B /* MineViewController.m in Sources */,
+				BF8D09530195FD941489553A /* HomeViewController.m in Sources */,
+				BF8D0B6855660D1CA271885B /* VideoViewController.m in Sources */,
+				BF8D05C92F421560E3E358C3 /* MineViewController.m in Sources */,
+				BF8D0A74D290BFE1F6D9B79F /* NewsTableViewCell.m in Sources */,
+				BF8D04BEC6BCE052E0CB77EB /* UIView+category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
