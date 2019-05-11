@@ -13,6 +13,7 @@
 		23E1BFDB226B4EC500EA6DBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23E1BFD9226B4EC500EA6DBD /* LaunchScreen.storyboard */; };
 		23E1BFDE226B4EC500EA6DBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E1BFDD226B4EC500EA6DBD /* main.m */; };
 		23E1BFE5226B68D000EA6DBD /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 23E1BFE4226B68D000EA6DBD /* icon.bundle */; };
+		BF8D0AFCF1EA09B98FEDAC6B /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D033376D9417AA5455ADC /* MineViewController.m */; };
 		BF8D0E29212DCB14D2D211A4 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D06F1035CF132944638BE /* VideoViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +28,9 @@
 		23E1BFDC226B4EC500EA6DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23E1BFDD226B4EC500EA6DBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		23E1BFE4226B68D000EA6DBD /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
+		BF8D033376D9417AA5455ADC /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		BF8D06F1035CF132944638BE /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		BF8D08623FB66E1730B00ADB /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		BF8D0A21EAC90D8EF0E7F361 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +75,8 @@
 				2392BB28226C4A0D00296489 /* HomeViewController.m */,
 				BF8D06F1035CF132944638BE /* VideoViewController.m */,
 				BF8D0A21EAC90D8EF0E7F361 /* VideoViewController.h */,
+				BF8D033376D9417AA5455ADC /* MineViewController.m */,
+				BF8D08623FB66E1730B00ADB /* MineViewController.h */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 				23E1BFD0226B4EC400EA6DBD /* AppDelegate.m in Sources */,
 				2392BB29226C4A0D00296489 /* HomeViewController.m in Sources */,
 				BF8D0E29212DCB14D2D211A4 /* VideoViewController.m in Sources */,
+				BF8D0AFCF1EA09B98FEDAC6B /* MineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

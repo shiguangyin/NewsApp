@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "VideoViewController.h"
+#import "MineViewController.h"
 
 @interface AppDelegate ()
 
@@ -29,12 +30,9 @@
     
     VideoViewController *videoVc = [[VideoViewController alloc]init];
 
-    
-    UIViewController *mineVc = [[UIViewController alloc]init];
-    mineVc.view.backgroundColor = [UIColor blueColor];
-    mineVc.tabBarItem.title = @"我的";
-    mineVc.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home"];
-    mineVc.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected"];
+    MineViewController *mineVc = [[MineViewController alloc]init];
+
+
     tabBarController.tabBar.tintColor = [UIColor redColor];
     [tabBarController setViewControllers:@[homeVc, videoVc, mineVc] animated:YES];
     
