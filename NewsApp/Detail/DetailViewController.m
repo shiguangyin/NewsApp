@@ -6,12 +6,15 @@
 #import <WebKit/WebKit.h>
 #import "DetailViewController.h"
 #import "UIView+category.h"
+#import "FBKVOController.h"
 
 
 @interface DetailViewController()
 
 
 @property (strong, nonatomic) WKWebView *webView;
+
+@property (strong, nonatomic) FBKVOController *fbkvoController;
 
 @end
 
@@ -31,7 +34,13 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [self.webView loadRequest:request];
     self.title = url;
-    
+
+    self.fbkvoController = [FBKVOController controllerWithObserver:self];
+    [self.fbkvoController observe:self.webView keyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        id progress = change[NSKeyValueChangeNewKey];
+        NSLog(@"new progress = %@", progress);
+    }];
+
 }
 
 
