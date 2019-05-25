@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "NewsTableViewCell.h"
+#import "DetailViewController.h"
 
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -49,12 +50,13 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 120;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"index %li clicked", indexPath.row);
+    DetailViewController *vc = [[DetailViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
