@@ -4,9 +4,9 @@
 //
 
 #import <WebKit/WebKit.h>
+#import <KVOController/KVOController.h>
 #import "DetailViewController.h"
 #import "UIView+category.h"
-#import "FBKVOController.h"
 
 
 @interface DetailViewController()
@@ -16,8 +16,6 @@
 
 @property (strong, nonatomic) WKWebView *webView;
 
-
-@property (strong, nonatomic) FBKVOController *fbkvoController;
 
 @end
 
@@ -45,8 +43,7 @@
     [self.webView loadRequest:request];
     self.title = url;
 
-    self.fbkvoController = [FBKVOController controllerWithObserver:self];
-    [self.fbkvoController observe:self.webView keyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+    [self.KVOController observe:self.webView keyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
         self.progressView.progress = (float) self.webView.estimatedProgress;
         if (self.progressView.progress > 0.99f) {
             self.progressView.hidden = YES;

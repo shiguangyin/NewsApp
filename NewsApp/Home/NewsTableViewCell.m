@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) UIImageView *contentImage;
 
+@property (strong, nonatomic) UIButton *dislikeButton;
+
 @end
 
 
@@ -26,6 +28,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.contentView.backgroundColor = [UIColor lightGrayColor];
         [self.contentView addSubview:({
             self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 0, 0)];
@@ -59,17 +62,33 @@
             self.contentImage.backgroundColor = [UIColor redColor];
             self.contentImage;
         })];
+
+        [self.contentView addSubview:({
+            self.dislikeButton = [[UIButton alloc] init];
+            [self.dislikeButton setTitle:@"X" forState:UIControlStateNormal];
+            [self.dislikeButton addTarget:self action:@selector(clickDislike:) forControlEvents:UIControlEventTouchUpInside];
+            self.dislikeButton.backgroundColor = [UIColor redColor];
+            self.dislikeButton;
+        })];
     }
 
     return self;
 }
 
+
+- (void) clickDislike: (UIButton *) button {
+    NSLog(@"button = %@", button);
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
+    CGFloat titleBottom = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
     CGFloat width = 100;
     CGFloat height = 60;
     CGFloat x = self.contentView.width - width - 20;
-    self.contentImage.frame = CGRectMake(x, 20, width, height);;
+    self.contentImage.frame = CGRectMake(x, 20, width, height);
+    self.dislikeButton.frame = CGRectMake(self.contentView.width - 40, titleBottom + 50,
+            20, 20);
 }
 
 
@@ -79,9 +98,10 @@
 
     CGFloat titleBottom = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
 
+
     self.sourceLabel.text = @"Source";
     [self.sourceLabel sizeToFit];
-    self.sourceLabel.frame = CGRectMake(20, titleBottom + 20, self.sourceLabel.width, self.sourceLabel.height);
+    self.sourceLabel.frame = CGRectMake(20, titleBottom + 50, self.sourceLabel.width, self.sourceLabel.height);
 
     uint32_t commentCount = arc4random() % 1000;
 
@@ -94,12 +114,12 @@
 
 
     [self.commentLabel sizeToFit];
-    self.commentLabel.frame = CGRectMake(self.sourceLabel.x + self.sourceLabel.width + 10, titleBottom + 20,
+    self.commentLabel.frame = CGRectMake(self.sourceLabel.x + self.sourceLabel.width + 10, titleBottom + 50,
             self.commentLabel.width, self.commentLabel.height);
 
     self.timeLabel.text = @"Time";
     [self.timeLabel sizeToFit];
-    self.timeLabel.frame = CGRectMake(self.commentLabel.x + self.commentLabel.width + 10, titleBottom + 20,
+    self.timeLabel.frame = CGRectMake(self.commentLabel.x + self.commentLabel.width + 10, titleBottom + 50,
             self.titleLabel.width, self.titleLabel.height);
 
 

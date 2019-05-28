@@ -54,10 +54,6 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DetailViewController *vc = [[DetailViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
 
 @end
