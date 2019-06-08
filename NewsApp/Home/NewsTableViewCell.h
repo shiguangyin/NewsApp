@@ -7,7 +7,16 @@
 #import <UIKit/UIKit.h>
 
 
+@protocol NewsTableViewCellDelegate <NSObject>
+
+- (void)tableViewCell:(UITableViewCell *)cell ClickDislikeButton: (UIButton *)button;
+
+@end
+
+
 @interface NewsTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) id<NewsTableViewCellDelegate> delegate;
 
 
 -(void)bindData;

@@ -8,9 +8,9 @@
 
 #import "HomeViewController.h"
 #import "NewsTableViewCell.h"
-#import "DetailViewController.h"
+#import "DislikeView.h"
 
-@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, NewsTableViewCellDelegate>
 
 
 @property(strong, nonatomic) UITableView *tableView;
@@ -44,6 +44,7 @@
     if (!cell) {
         cell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"item"];
     }
+    cell.delegate = self;
     [cell bindData];
     return cell;
 }
@@ -53,7 +54,13 @@
     return 120;
 }
 
-
+- (void)tableViewCell:(UITableViewCell *)cell ClickDislikeButton:(UIButton *)button {
+    DislikeView *dislikeView = [[DislikeView alloc] init];
+    CGPoint point = [cell convertPoint: button.frame.origin toView:nil];
+    [dislikeView showFromPoint:point WithBlock:^{
+        NSLog(@"Dislike clicked");
+    }];
+}
 
 
 @end

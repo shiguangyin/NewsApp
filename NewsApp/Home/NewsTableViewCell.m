@@ -5,6 +5,7 @@
 
 #import "NewsTableViewCell.h"
 #import "UIView+category.h"
+#import "DislikeView.h"
 
 @interface NewsTableViewCell()
 
@@ -77,7 +78,9 @@
 
 
 - (void) clickDislike: (UIButton *) button {
-    NSLog(@"button = %@", button);
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tableViewCell:ClickDislikeButton:)]) {
+        [self.delegate tableViewCell:self ClickDislikeButton:button];
+    }
 }
 
 - (void)layoutSubviews {
@@ -87,8 +90,8 @@
     CGFloat height = 60;
     CGFloat x = self.contentView.width - width - 20;
     self.contentImage.frame = CGRectMake(x, 20, width, height);
-    self.dislikeButton.frame = CGRectMake(self.contentView.width - 40, titleBottom + 50,
-            20, 20);
+    self.dislikeButton.frame = CGRectMake(self.contentView.width - 50, titleBottom + 50,
+            30, 20);
 }
 
 

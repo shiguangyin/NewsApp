@@ -19,6 +19,7 @@
 		BF8D09530195FD941489553A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D04C8ABB5BF476647A4BA /* HomeViewController.m */; };
 		BF8D0A74D290BFE1F6D9B79F /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D0FD92B97BFE5E741DD1A /* NewsTableViewCell.m */; };
 		BF8D0B6855660D1CA271885B /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D03E8B9219D23C086D70E /* VideoViewController.m */; };
+		BF8D0F8A11B59967E38C2B9C /* DislikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D02D858F8FB62598ABFA3 /* DislikeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A5A7EAD7A62FF47DD97E6988 /* libPods-NewsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NewsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D0026A19D1621C3056B86 /* UIView+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+category.h"; sourceTree = "<group>"; };
 		BF8D029DD11DA1DF9F1FDC45 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		BF8D02D858F8FB62598ABFA3 /* DislikeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DislikeView.m; sourceTree = "<group>"; };
 		BF8D02F36BA395DA111FB430 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		BF8D032802E9AD22342718DA /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
 		BF8D03DD168D100510B75FEC /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 		BF8D0753D9B5814853B37DC8 /* UIView+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+category.m"; sourceTree = "<group>"; };
 		BF8D07CD33DE2F824964C126 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		BF8D092C1D4C0420C31AC65C /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		BF8D0C0B0F95A38E7F880379 /* DislikeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DislikeView.h; sourceTree = "<group>"; };
 		BF8D0FD92B97BFE5E741DD1A /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
 		F0062CE92AD4200B3D2BD69E /* Pods-NewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.debug.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +133,8 @@
 				BF8D02F36BA395DA111FB430 /* HomeViewController.h */,
 				BF8D0FD92B97BFE5E741DD1A /* NewsTableViewCell.m */,
 				BF8D032802E9AD22342718DA /* NewsTableViewCell.h */,
+				BF8D02D858F8FB62598ABFA3 /* DislikeView.m */,
+				BF8D0C0B0F95A38E7F880379 /* DislikeView.h */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				BF8D0A74D290BFE1F6D9B79F /* NewsTableViewCell.m in Sources */,
 				BF8D04BEC6BCE052E0CB77EB /* UIView+category.m in Sources */,
 				BF8D049984CE3C3C8F323905 /* DetailViewController.m in Sources */,
+				BF8D0F8A11B59967E38C2B9C /* DislikeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
