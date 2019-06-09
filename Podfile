@@ -1,5 +1,9 @@
-target "NewsApp"
-
 platform :ios, '10.0'
 
-pod 'KVOController'
+target "NewsApp" do
+
+  pod 'KVOController'
+
+  pod 'AFNetworking', '~> 3.0'
+
+end

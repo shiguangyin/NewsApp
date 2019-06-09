@@ -4,19 +4,18 @@
 //
 
 #import "NewsListLoader.h"
+#import "AFNetworking.h"
 
 
 @implementation NewsListLoader
 
 - (void)loadListData {
-    NSURL *url = [NSURL URLWithString:@"http://gank.io/api/today"];
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-    NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSString *resp = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"res = %@", resp);
+    NSString *url = @"http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/1";
+    [[AFHTTPSessionManager manager] GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"data= %@", responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"error = %@", error);
     }];
-    [task resume];
 
 }
 
