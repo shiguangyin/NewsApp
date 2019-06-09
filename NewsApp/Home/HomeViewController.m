@@ -9,12 +9,15 @@
 #import "HomeViewController.h"
 #import "NewsTableViewCell.h"
 #import "DislikeView.h"
+#import "NewsListLoader.h"
 
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, NewsTableViewCellDelegate>
 
-@property(strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UITableView *tableView;
 
-@property(strong, nonatomic) NSMutableArray *data;
+@property (strong, nonatomic) NSMutableArray *data;
+
+@property (strong, nonatomic) NewsListLoader *loader;
 
 @end
 
@@ -30,6 +33,8 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
+    self.loader = [[NewsListLoader alloc] init];
+    [self.loader loadListData];
 }
 
 - (UITableView *)tableView {
@@ -61,11 +66,13 @@
 
 - (void)tableViewCell:(UITableViewCell *)cell ClickDislikeButton:(UIButton *)button {
     DislikeView *dislikeView = [[DislikeView alloc] init];
-    CGPoint point = [cell convertPoint: button.frame.origin toView:nil];
+    CGPoint point = [cell convertPoint:button.frame.origin toView:nil];
+    __weak typeof(self) weakSelf = self;
     [dislikeView showFromPoint:point WithBlock:^{
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        [self.data removeObjectAtIndex:indexPath.item];
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
+        __strong typeof(self) strongSelf = weakSelf;
+        NSIndexPath *indexPath = [strongSelf.tableView indexPathForCell:cell];
+        [strongSelf.data removeObjectAtIndex:indexPath.item];
+        [strongSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
     }];
 }
 
