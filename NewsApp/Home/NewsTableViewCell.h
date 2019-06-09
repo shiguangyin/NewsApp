@@ -19,6 +19,6 @@
 @property (weak, nonatomic) id<NewsTableViewCellDelegate> delegate;
 
 
--(void)bindData;
+- (void)bindWithTitle:(NSString *)title;
 
 @end

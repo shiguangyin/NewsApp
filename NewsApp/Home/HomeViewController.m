@@ -12,8 +12,9 @@
 
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, NewsTableViewCellDelegate>
 
-
 @property(strong, nonatomic) UITableView *tableView;
+
+@property(strong, nonatomic) NSMutableArray *data;
 
 @end
 
@@ -22,6 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.data = [[NSMutableArray alloc] initWithCapacity:20];
+    for (int i = 0; i < 20; ++i) {
+        [self.data addObject:@(i)];
+    }
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
@@ -36,7 +41,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 40;
+    return self.data.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -45,7 +50,7 @@
         cell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"item"];
     }
     cell.delegate = self;
-    [cell bindData];
+    [cell bindWithTitle:[NSString stringWithFormat:@"Title %d", (int) indexPath.item]];
     return cell;
 }
 
@@ -58,7 +63,9 @@
     DislikeView *dislikeView = [[DislikeView alloc] init];
     CGPoint point = [cell convertPoint: button.frame.origin toView:nil];
     [dislikeView showFromPoint:point WithBlock:^{
-        NSLog(@"Dislike clicked");
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        [self.data removeObjectAtIndex:indexPath.item];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
     }];
 }
 

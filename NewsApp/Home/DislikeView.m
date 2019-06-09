@@ -54,6 +54,7 @@
 
 
 - (void)clickDislike {
+    [self dismiss];
     if (self.dislikeBlock) {
         self.dislikeBlock();
     }

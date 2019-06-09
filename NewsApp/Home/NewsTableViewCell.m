@@ -95,8 +95,8 @@
 }
 
 
-- (void)bindData {
-    self.titleLabel.text = @"News title";
+- (void)bindWithTitle:(NSString *)title {
+    self.titleLabel.text = title;
     [self.titleLabel sizeToFit];
 
     CGFloat titleBottom = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
