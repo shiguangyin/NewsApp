@@ -19,6 +19,7 @@
 		BF8D09530195FD941489553A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D04C8ABB5BF476647A4BA /* HomeViewController.m */; };
 		BF8D0A74D290BFE1F6D9B79F /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D0FD92B97BFE5E741DD1A /* NewsTableViewCell.m */; };
 		BF8D0B6855660D1CA271885B /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D03E8B9219D23C086D70E /* VideoViewController.m */; };
+		BF8D0CA706CC238B0F23AE9A /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D06BC3559FF3B6577B60E /* ListItem.m */; };
 		BF8D0E050A6AC9D815D23A67 /* NewsListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D03B04BF001D4A5814CAD /* NewsListLoader.m */; };
 		BF8D0F8A11B59967E38C2B9C /* DislikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D02D858F8FB62598ABFA3 /* DislikeView.m */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,8 @@
 		BF8D03DD168D100510B75FEC /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		BF8D03E8B9219D23C086D70E /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		BF8D04C8ABB5BF476647A4BA /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		BF8D056064279A1BA9F35FC2 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
+		BF8D06BC3559FF3B6577B60E /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
 		BF8D073790FF0CA18329ED44 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		BF8D0753D9B5814853B37DC8 /* UIView+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+category.m"; sourceTree = "<group>"; };
 		BF8D07CD33DE2F824964C126 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -129,6 +132,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		BF8D036AB888C79F7D684522 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D06BC3559FF3B6577B60E /* ListItem.m */,
+				BF8D056064279A1BA9F35FC2 /* ListItem.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BF8D0768FDFB10E707E6DD27 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +152,7 @@
 				BF8D0C0B0F95A38E7F880379 /* DislikeView.h */,
 				BF8D03B04BF001D4A5814CAD /* NewsListLoader.m */,
 				BF8D0CB4062DCF79A611135A /* NewsListLoader.h */,
+				BF8D036AB888C79F7D684522 /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -277,6 +290,7 @@
 				BF8D049984CE3C3C8F323905 /* DetailViewController.m in Sources */,
 				BF8D0F8A11B59967E38C2B9C /* DislikeView.m in Sources */,
 				BF8D0E050A6AC9D815D23A67 /* NewsListLoader.m in Sources */,
+				BF8D0CA706CC238B0F23AE9A /* ListItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

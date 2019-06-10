@@ -15,20 +15,24 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - KVOController (1.2.0)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - KVOController
+  - YYModel
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - KVOController
+    - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: e3896701c6eb5284bd29f9569854d8036c065d1d
+PODFILE CHECKSUM: ad610cb07d5c4569737c442a9a19b144624aca94
 
 COCOAPODS: 1.6.1
