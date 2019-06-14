@@ -11,9 +11,15 @@
 
 @property NSString *desc;
 
+@property NSString *source;
+
+@property NSString *type;
+
 @property NSString *url;
 
 @property NSString *who;
+
+@property NSString *publishedAt;
 
 
 @end

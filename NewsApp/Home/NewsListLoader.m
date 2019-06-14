@@ -12,8 +12,8 @@
 
 @implementation NewsListLoader
 
-- (void)loadListData {
-    NSString *url = @"http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/1";
+- (void)loadListDataWithBlock: (void (^)(bool success, NSArray *items))block {
+    NSString *url = @"http://gank.io/api/data/all/20/1";
     [[AFHTTPSessionManager manager] GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSArray * results = ((NSDictionary *) responseObject)[@"results"];
@@ -22,10 +22,14 @@
                 ListItem *item = [ListItem yy_modelWithDictionary:dict];
                 [listItems addObject:item];
             }
-            NSLog(@"items = %@", listItems);
+            dispatch_async(dispatch_get_main_queue(), ^{
+               block(YES, listItems);
+            });
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"error = %@", error);
+        dispatch_async(dispatch_get_main_queue(), ^{
+           block(NO, nil);
+        });
     }];
 
 }

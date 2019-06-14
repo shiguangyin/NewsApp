@@ -6,6 +6,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class ListItem;
+
 
 @protocol NewsTableViewCellDelegate <NSObject>
 
@@ -19,6 +21,6 @@
 @property (weak, nonatomic) id<NewsTableViewCellDelegate> delegate;
 
 
-- (void)bindWithTitle:(NSString *)title;
+- (void)bindWith:(ListItem *)item;
 
 @end

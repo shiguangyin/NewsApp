@@ -6,6 +6,7 @@
 #import "NewsTableViewCell.h"
 #import "UIView+category.h"
 #import "DislikeView.h"
+#import "ListItem.h"
 
 @interface NewsTableViewCell()
 
@@ -95,26 +96,19 @@
 }
 
 
-- (void)bindWithTitle:(NSString *)title {
-    self.titleLabel.text = title;
+- (void)bindWith:(ListItem *)item {
+    self.titleLabel.text = item.desc;
     [self.titleLabel sizeToFit];
 
     CGFloat titleBottom = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
 
 
-    self.sourceLabel.text = @"Source";
+    self.sourceLabel.text = item.source;
     [self.sourceLabel sizeToFit];
     self.sourceLabel.frame = CGRectMake(20, titleBottom + 50, self.sourceLabel.width, self.sourceLabel.height);
 
-    uint32_t commentCount = arc4random() % 1000;
 
-
-    if (commentCount > 1 ) {
-        self.commentLabel.text = [NSString stringWithFormat:@"%dcomments", commentCount];
-    } else {
-        self.commentLabel.text = [NSString stringWithFormat:@"%dcomment", commentCount];
-    }
-
+    self.commentLabel.text = item.type;
 
     [self.commentLabel sizeToFit];
     self.commentLabel.frame = CGRectMake(self.sourceLabel.x + self.sourceLabel.width + 10, titleBottom + 50,

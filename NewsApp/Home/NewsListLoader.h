@@ -8,6 +8,6 @@
 
 @interface NewsListLoader : NSObject
 
-- (void)loadListData;
+- (void)loadListDataWithBlock: (void (^)(bool success, NSArray *items))block;
 
 @end

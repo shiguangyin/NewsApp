@@ -10,6 +10,7 @@
 #import "NewsTableViewCell.h"
 #import "DislikeView.h"
 #import "NewsListLoader.h"
+#import "ListItem.h"
 
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, NewsTableViewCellDelegate>
 
@@ -26,15 +27,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.data = [[NSMutableArray alloc] initWithCapacity:20];
-    for (int i = 0; i < 20; ++i) {
-        [self.data addObject:@(i)];
-    }
+    self.data = [[NSMutableArray alloc] init];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
     self.loader = [[NewsListLoader alloc] init];
-    [self.loader loadListData];
+    __weak typeof(self) weakSelf = self;
+    [self.loader loadListDataWithBlock:^(bool success, NSArray *items) {
+        __strong typeof(self) this = weakSelf;
+        [this.data removeAllObjects];
+        [this.data addObjectsFromArray:items];
+        [this.tableView reloadData];
+    }];
 }
 
 - (UITableView *)tableView {
@@ -55,7 +59,10 @@
         cell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"item"];
     }
     cell.delegate = self;
-    [cell bindWithTitle:[NSString stringWithFormat:@"Title %d", (int) indexPath.item]];
+    id item = self.data[indexPath.item];
+    if ([item isKindOfClass:[ListItem class]]) {
+        [cell bindWith:item];
+    }
     return cell;
 }
 
