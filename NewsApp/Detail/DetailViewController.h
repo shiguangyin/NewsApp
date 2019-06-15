@@ -9,4 +9,6 @@
 
 @interface DetailViewController : UIViewController
 
+- (instancetype)initWithUrl:(NSString *)url Title:(NSString *)title;
+
 @end

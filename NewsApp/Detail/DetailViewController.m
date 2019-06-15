@@ -11,8 +11,11 @@
 
 @interface DetailViewController()
 
-@property (strong, nonatomic) UIProgressView *progressView;
+@property (strong, nonatomic) NSString *url;
 
+@property (strong, nonatomic) NSString *title;
+
+@property (strong, nonatomic) UIProgressView *progressView;
 
 @property (strong, nonatomic) WKWebView *webView;
 
@@ -21,6 +24,15 @@
 
 
 @implementation DetailViewController
+
+- (instancetype)initWithUrl:(NSString *)url Title:(NSString *)title {
+    self = [super init];
+    if (self) {
+        self.url = url;
+        self.title = title;
+    }
+    return self;
+}
 
 
 - (void)viewDidLoad {
@@ -38,11 +50,9 @@
     })];
 
 
-    NSString *url = @"https://github.com";
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.url]];
     [self.webView loadRequest:request];
-    self.title = url;
-
+    self.title = self.title;
     [self.KVOController observe:self.webView keyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
         self.progressView.progress = (float) self.webView.estimatedProgress;
         if (self.progressView.progress > 0.99f) {

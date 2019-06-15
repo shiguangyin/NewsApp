@@ -6,7 +6,12 @@
 #import "ListItem.h"
 
 
-@implementation ListItem {
+@implementation ListItem
 
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{
+        @"images": [NSString class]
+    };
 }
+
 @end

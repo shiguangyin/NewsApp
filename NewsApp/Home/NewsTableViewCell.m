@@ -7,6 +7,7 @@
 #import "UIView+category.h"
 #import "DislikeView.h"
 #import "ListItem.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface NewsTableViewCell()
 
@@ -31,10 +32,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.contentView.backgroundColor = [UIColor lightGrayColor];
         [self.contentView addSubview:({
             self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 0, 0)];
             self.titleLabel.font = [UIFont systemFontOfSize:16];
+            self.titleLabel.numberOfLines = 2;
+            self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
             self.titleLabel;
         })];
 
@@ -61,17 +63,16 @@
 
         [self.contentView addSubview:({
             self.contentImage = [[UIImageView alloc] init];
-            self.contentImage.backgroundColor = [UIColor redColor];
             self.contentImage;
         })];
 
-        [self.contentView addSubview:({
-            self.dislikeButton = [[UIButton alloc] init];
-            [self.dislikeButton setTitle:@"X" forState:UIControlStateNormal];
-            [self.dislikeButton addTarget:self action:@selector(clickDislike:) forControlEvents:UIControlEventTouchUpInside];
-            self.dislikeButton.backgroundColor = [UIColor redColor];
-            self.dislikeButton;
-        })];
+//        [self.contentView addSubview:({
+//            self.dislikeButton = [[UIButton alloc] init];
+//            [self.dislikeButton setTitle:@"X" forState:UIControlStateNormal];
+//            [self.dislikeButton addTarget:self action:@selector(clickDislike:) forControlEvents:UIControlEventTouchUpInside];
+//            self.dislikeButton.backgroundColor = [UIColor redColor];
+//            self.dislikeButton;
+//        })];
     }
 
     return self;
@@ -87,12 +88,23 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     CGFloat titleBottom = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
-    CGFloat width = 100;
-    CGFloat height = 60;
+    CGFloat width = 120;
+    CGFloat height = 80;
     CGFloat x = self.contentView.width - width - 20;
     self.contentImage.frame = CGRectMake(x, 20, width, height);
     self.dislikeButton.frame = CGRectMake(self.contentView.width - 50, titleBottom + 50,
             30, 20);
+    CGFloat titleWidth = x - 30;
+    self.titleLabel.frame = CGRectMake(20, 20, titleWidth, 40);
+
+    CGFloat bottomY = self.contentView.height - 30;
+    self.sourceLabel.frame = CGRectMake(20, bottomY, self.sourceLabel.width, self.sourceLabel.height);
+    self.commentLabel.frame = CGRectMake(self.sourceLabel.x + self.sourceLabel.width + 10, bottomY,
+            self.commentLabel.width, self.commentLabel.height);
+    self.timeLabel.frame = CGRectMake(self.commentLabel.x + self.commentLabel.width + 10, bottomY,
+            self.timeLabel.width, self.timeLabel.height);
+
+
 }
 
 
@@ -100,25 +112,30 @@
     self.titleLabel.text = item.desc;
     [self.titleLabel sizeToFit];
 
-    CGFloat titleBottom = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
-
-
     self.sourceLabel.text = item.source;
     [self.sourceLabel sizeToFit];
-    self.sourceLabel.frame = CGRectMake(20, titleBottom + 50, self.sourceLabel.width, self.sourceLabel.height);
 
 
     self.commentLabel.text = item.type;
-
     [self.commentLabel sizeToFit];
-    self.commentLabel.frame = CGRectMake(self.sourceLabel.x + self.sourceLabel.width + 10, titleBottom + 50,
-            self.commentLabel.width, self.commentLabel.height);
 
-    self.timeLabel.text = @"Time";
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+    NSDate *date = [formatter dateFromString:item.publishedAt];
+    if (date) {
+        formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+        self.timeLabel.text = [formatter stringFromDate:date];
+    } else {
+        self.timeLabel.text = @"Unknow";
+    }
     [self.timeLabel sizeToFit];
-    self.timeLabel.frame = CGRectMake(self.commentLabel.x + self.commentLabel.width + 10, titleBottom + 50,
-            self.titleLabel.width, self.titleLabel.height);
 
+    if (item.images && item.images.count > 0) {
+        [self.contentImage sd_setImageWithURL:item.images[0] placeholderImage:[UIImage imageNamed:@"no_images"]];
+    } else {
+        self.contentImage.image = [UIImage imageNamed:@"no_images"];
+    }
 
 }
 

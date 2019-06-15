@@ -11,6 +11,7 @@
 #import "DislikeView.h"
 #import "NewsListLoader.h"
 #import "ListItem.h"
+#import "DetailViewController.h"
 
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, NewsTableViewCellDelegate>
 
@@ -81,6 +82,15 @@
         [strongSelf.data removeObjectAtIndex:indexPath.item];
         [strongSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
     }];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    id obj = self.data[indexPath.item];
+    if ([obj isKindOfClass:[ListItem class]]) {
+        ListItem *item = obj;
+        DetailViewController *vc = [[DetailViewController alloc] initWithUrl:item.url Title:item.desc];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 

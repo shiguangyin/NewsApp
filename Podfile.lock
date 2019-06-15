@@ -15,24 +15,30 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - KVOController (1.2.0)
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - KVOController
+  - SDWebImage
   - YYModel
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - KVOController
+    - SDWebImage
     - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: ad610cb07d5c4569737c442a9a19b144624aca94
+PODFILE CHECKSUM: d85532877fe49eb50a621c9fb6bbc0e657ef58a0
 
 COCOAPODS: 1.6.1

@@ -21,5 +21,6 @@
 
 @property NSString *publishedAt;
 
+@property NSArray *images;
 
 @end
