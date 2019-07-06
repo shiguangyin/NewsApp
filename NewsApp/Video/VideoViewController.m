@@ -4,6 +4,7 @@
 //
 
 #import "VideoViewController.h"
+#import "VideoCollectionViewCell.h"
 
 
 @interface VideoViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -32,7 +33,7 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"item"];
+    [self.collectionView registerClass:[VideoCollectionViewCell class] forCellWithReuseIdentifier:@"item"];
     [self.view addSubview:self.collectionView];
 
 }
@@ -54,21 +55,16 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     __kindof UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"item" forIndexPath:indexPath];
-    cell.contentView.backgroundColor = [UIColor redColor];
+    if ([cell isKindOfClass:[VideoCollectionViewCell class]]) {
+        [((VideoCollectionViewCell *)cell) bindData];
+    }
     return cell;
 }
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize result;
     CGFloat viewWidth = self.view.bounds.size.width;
-    if (indexPath.item % 3 == 0) {
-        result = CGSizeMake(viewWidth, 150);
-    } else {
-        result = CGSizeMake((viewWidth - 10) / 2, 200);
-    }
-
-    return result;
+    return CGSizeMake(viewWidth, viewWidth * 9/16);
 }
 
 
